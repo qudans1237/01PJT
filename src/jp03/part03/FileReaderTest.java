@@ -10,7 +10,7 @@ public class FileReaderTest {
 		int readCount=0;
 		
 		try {
-			fr = new FileReader(args[10]);
+			fr = new FileReader(args[0]);
 			
 			while(true) {
 				int i = fr.read();
@@ -33,7 +33,9 @@ public class FileReaderTest {
 			System.out.println("===> readÈ½¼ö readCount: "+readCount);
 			System.out.println("=======================");
 			try {
-				fr.close();
+				if (fr != null) {
+					fr.close();
+				}
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

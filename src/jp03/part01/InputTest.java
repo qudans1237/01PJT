@@ -5,6 +5,9 @@ import java.io.*;
 public class InputTest {
 
 	public static void main(String args[]) {
+
+		System.out.println(args[0]);
+		
 		InputStream inputStream = System.in;
 
 		System.out.println("입력을 기다립니다......");

@@ -28,7 +28,7 @@ public class UserVO {
 	public String getName() {
 		return name;
 	}
-	@Override
+//	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("UserVO[no=");
