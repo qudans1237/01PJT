@@ -2,7 +2,7 @@ package jp03.part05;
 
 import java.io.*;
 
-public class FileWriterTestFilter01 {
+public class FileWriterTestFilter01_copy2 {
 
 	public static void main(String[] args) throws IOException {//견고한 프로그램 나중에 try/catch 하겠다
 
@@ -25,7 +25,6 @@ public class FileWriterTestFilter01 {
 		String source = null;
 		while((source=br.readLine())!=null) {
 			bw.write(source);
-			bw.newLine();
 			readCount++;
 		}
 		bw.flush();

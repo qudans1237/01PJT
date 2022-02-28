@@ -2,7 +2,7 @@ package jp03.part06;
 
 import java.io.*;
 
-public class UserVO {
+public class UserVO implements Serializable {
 	
 	private int no;
 	private String name;

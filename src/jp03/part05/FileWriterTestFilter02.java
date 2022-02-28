@@ -11,7 +11,8 @@ public class FileWriterTestFilter02 {
 		
 		br = new BufferedReader(new InputStreamReader(System.in));
 		
-		bw = new BufferedWriter(new FileWriter("test.txt"));
+//		bw = new BufferedWriter(new FileWriter("test.txt"));
+		bw = new BufferedWriter(new FileWriter("test.txt",true));
 		
 		System.out.println("파일에 저장하실 글을 입력하세요.");
 		while(true) {
@@ -19,6 +20,8 @@ public class FileWriterTestFilter02 {
 			if(str.equals("끝")) {
 				break;
 			}
+			
+			
 			bw.write(str,0,str.length());
 			bw.newLine();
 		}

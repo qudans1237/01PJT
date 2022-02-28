@@ -8,12 +8,13 @@ public class FileInfo {
 		
 		System.out.println("파일 이름을 넣으세요");
 		
-		String name ="";
+		String name =""; // NullString 상태값이 아무것도 없다 null과 큰차이
 		
 		try {
 			BufferedReader in =
 					new BufferedReader(new InputStreamReader(System.in));
 			name = in.readLine();
+			// name = new BufferedReader(new InputStreamReader(System.in)).readLine();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
