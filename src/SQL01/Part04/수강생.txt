@@ -43,3 +43,4 @@ VALUES(5,'장나라');
 INSERT
 INTO emp_test
 VALUES(6,'신나라',NULL,null,",");
+COMMIT:

@@ -3,11 +3,20 @@ package test;
 public class Prob17 {
 
 	public static String myReplace(String str, char oldChar, char newChar) {
-
 		
+		String result ="";
 		
-		return null;
-	}
+		for(int i =0;i<str.length();i++) {
+			
+			if(str.charAt(i) == oldChar) {
+				result += newChar;
+			}else {
+				result += str.charAt(i);
+			}
+		}
+		return result;
+	}		
+	
 	
 	public static void mian(String[] args) {
 		
