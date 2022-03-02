@@ -2,36 +2,44 @@ package test;
 
 public class SmartPhone extends CellPhone {
 
-	private Boolean isMonthlyFixedRate=true; //월정액요금제유
-	private int monthlyFixedFee; //월정액요
-	
+	private boolean monthlyFixedRate = false;
+	private int monthlyFixedFee = 0;
+
 	public SmartPhone() {
+		super();
 	}
 
-	public SmartPhone(String phoneNumber,int monthlyFixedFee,Boolean isMonthlyFixedRate, int feePerCallTime) {
+	public SmartPhone(String phoneNumber, int feePerCallTime) {
 		super(phoneNumber, feePerCallTime);
-		this.isMonthlyFixedRate = isMonthlyFixedRate;
+	}
+	
+	public SmartPhone(String phoneNumber, int feePerCallTime, boolean monthlyFixedRate, int monthlyFixedFee) {
+		super(phoneNumber, feePerCallTime);
+		this.monthlyFixedRate = monthlyFixedRate;
 		this.monthlyFixedFee = monthlyFixedFee;
 	}
 
-	public Boolean getIsMonthlyFixedRate() {
-		return isMonthlyFixedRate;
+	public boolean isMonthlyFixedRate() {
+		return monthlyFixedRate;
 	}
 
-	public void setIsMonthlyFixedRate(Boolean isMonthlyFixedRate) {
-		this.isMonthlyFixedRate = isMonthlyFixedRate;
+	public void setMonthlyFixedRate(boolean monthlyFixedRate) {
+		this.monthlyFixedRate = monthlyFixedRate;
 	}
 
 	public int getMonthlyFixedFee() {
 		return monthlyFixedFee;
 	}
 
-	public void setMonthlyFixedFee(int monthlyFixedFee) {
-		this.monthlyFixedFee = monthlyFixedFee;
-	}
-	
-	public void calculateTotalFee() {
-		
+	public void setMonthlyFixedFee(int monhlyFixedFee) {
+		this.monthlyFixedFee = monhlyFixedFee;
 	}
 
+	public void calculationTotalFee() {
+		if(monthlyFixedRate) {
+			totalFee = monthlyFixedFee;
+		} else {
+			super.calculationTotalFee();
+		}
+	}
 }

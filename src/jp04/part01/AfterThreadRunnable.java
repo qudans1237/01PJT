@@ -1,6 +1,6 @@
 package jp04.part01;
 
-public class AfterThreadRunnable implements Runnable{
+public class AfterThreadRunnable implements Runnable {
 
 	private String name;
 	
@@ -14,16 +14,16 @@ public class AfterThreadRunnable implements Runnable{
 	public void run() {
 		for(int i=1;i<100;i++) {
 			System.out.println(name+" : "+i);
-//			try {
-//				Thread.sleep(100);
-//			}catch(InterruptedException e) {
-//				System.out.println(e);
-//			}
+			try {
+				Thread.sleep(100);
+			}catch(InterruptedException e) {
+				System.out.println(e);
+			}
 		}
 	}
 	
 	public static void main(String[] args) {
-		AfterThreadRunnable bt1 = new AfterThreadRunnable("1번째");
+		Runnable bt1 = new AfterThreadRunnable("1번째");
 		AfterThreadRunnable bt2 = new AfterThreadRunnable("2번째");
 		
 		Thread t1 = new Thread(bt1);

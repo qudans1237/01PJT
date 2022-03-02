@@ -7,16 +7,25 @@ public class Prob21 {
 	
 	public String toEncoding(String str) {
 		
-		String value = str;
-		byte[] temp = value.getBytes();
-		System.out.println(Integer.toHexString(temp[0]));
-		System.out.println(Integer.toHexString(temp[1]));
-	
-		
-		return null;
-		
+		String value = "";
+
+		for(int i = 0; i < str.length();i++) {
+			char c = str.charAt(i);
+			
+			if((c>='A'&&c<='z')||(c>='0'&&c<='9')||c==' ') {
+				value += c;
+			}else {
+				
+				String temp = c+"";
+				byte[] strBytes=temp.getBytes();
+				
+				for (int j = 0;j<strBytes.length;j++) {
+					value += "%"+Integer.toHexString(strBytes[j]).toUpperCase().substring(6,8);
+				}
+			}
+		}
+		return value;	
 	}
-	
 	
 	public static void main(String[] args) {
 		Prob21 p1 = new Prob21();

@@ -1,0 +1,26 @@
+SELECT * FROM emp_test;
+
+SELECT
+name,NVL(salary,0)
+FROM emp_test;
+
+SELECT
+name,NVL2(salary,salary,0),NVL(salary,0)
+FROM emp_test;
+
+SELECT
+name,NVL2(salary, salary*12,0), NVL(salary*12, 0)
+FROM emp_test;
+
+SELECT
+name,NVL2(title, title,'<직급없음>'), NVL(title, '<직급없음>'),
+NVL2(title,'직급있음','<직급없음>')
+FROM emp_test;
+
+SELECT
+name, DECODE(title,
+			NULL,'<직급없음>',
+			'사장', '회사의아버지',
+			'부사장','회사의어머니',
+			'직급있음'),title
+FROM emp_test;
