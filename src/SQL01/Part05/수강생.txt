@@ -1,8 +1,8 @@
 SELECT * FROM emp_test;
 
-UPDATE emp_tset
+UPDATE emp_test
 SET id = 7
-WHERE name = 'SCOTT'
+WHERE name = 'SCOTT';
 
 SELECT * FROM emp_test;
 
@@ -17,6 +17,30 @@ SET dept_name = '관리부'
 WHERE dept_name = '영업부';
 SELECT * FROM emp_test;
 COMMIT
+
+UPDATE emp_test
+set salary=2000,title='사장',dept_name='영업팀'
+where name = '홍길순';
+
+UPDATE emp_test
+set dept_name='대기발령'
+where salary >=1500;
+
+UPDATE emp_test
+set dept_name='평사원';
+
+UPDATE emp_test
+set salary= salary+500;
+//
+
+UPDATE emp_test
+set dept_name = '대기발령'
+WHERE dept_name IS NULL;
+
+
+UPDATE emp_test
+set dept_name = '대기발령'
+WHERE dept_name IS NOT NULL;
 
 //========================//
 DELETE FROM emp_test
