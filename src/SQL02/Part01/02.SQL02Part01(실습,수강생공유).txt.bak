@@ -29,8 +29,8 @@ where in_date BETWEEN '01/01/01' and '01/12/31';
 select
 *
 from emp_test
-where salary IS NULL
-ORDER BY in_date asc;
+where salary like null;
+
 
 
 
@@ -41,8 +41,3 @@ ORDER BY in_date asc;
 
 
 4. 관리부에서 급여가 6000이상 인 사람 이름/급여/부서 조회
-
-select 
-name 이름,salary 급여,dept_name 부서
-from emp_test
-where salary>=6000 AND dept_name = '관리부';

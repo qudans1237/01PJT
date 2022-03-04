@@ -1,7 +1,7 @@
 SELECT * FROM emp_test;
-//null value :null=0으로 표시해달라//
+
 SELECT
-name,NVL(salary,0) 
+name,NVL(salary,0)
 FROM emp_test;
 
 SELECT
@@ -19,16 +19,8 @@ FROM emp_test;
 
 SELECT
 name, DECODE(title,
-NULL,'<직급없음>',
-'직급있음')
-from emp_test;
-
-SELECT
-name, DECODE(title,
 			NULL,'<직급없음>',
 			'사장', '회사의아버지',
 			'부사장','회사의어머니',
 			'직급있음'),title
 FROM emp_test;
-
-//if-elseif-else 구조 = DECODE

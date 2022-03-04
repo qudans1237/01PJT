@@ -139,11 +139,12 @@ name 이름,in_date 입사일
 FROM emp_test
 WHERE in_date LIKE '%04';
 
+//=================================================//
 SELECT
 name 이름, in_date 입사일
 FROM emp_test
 WHERE in_date LIKE '%0%';
-======================================
+
 SELECT
 name 이름, salary 월급
 FROM emp_test

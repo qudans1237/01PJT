@@ -1,0 +1,5 @@
+가로 row = record
+세로 컬럼
+cell = field
+RDBMS 관계형데이터베이스 Relational DataBase Menagement System
+class diagram
