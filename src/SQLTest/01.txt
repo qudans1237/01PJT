@@ -57,8 +57,31 @@ order by d.department_name, e.last_name ;
 ==========================================================================
 문제 6)
 select
-l.city 도시이름,avg(e.salary),count(*)
+l.city 도시이름,avg(e.salary) 평균급여 ,count(*) 직원수
+from employees e, departments d, locations l
+where e.department_id=d.department_id
+group by l.city
+having count(*)<10
+order by avg(e.salary) asc;
 
+===========================================================================
+문제 7)
+select
+j.jpb_title 직책, to_char(avg(e.salary),'99,999') 평균급여
+from employees e, jobs j
+where e.job_id = j.job_id
+and e.department_id=30
+group by j.job_title;
+
+=========================================================================
+문제 8)
+
+select
+e.employee_id, concat(concat(e.first_name,' '), e.last_name)
+from employees e, jobs j, job_history h
+where j.job_title = 'public accountant' 
+					and h.job_id=j.job_id 
+					and e.employee_id = h.employee_id;
 
 
 

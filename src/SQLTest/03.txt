@@ -1,0 +1,16 @@
+문제 1)
+select
+e1.last_name, e1.salary
+from employees e1, employees e2
+where e1.manager_id = e2.employee_id
+	and e1.salary>e2.salary;
+	
+============================================
+문제 2)
+
+select
+e.first_name, e.last_name, e.salary
+from employees e, jobs j
+where e.job_id = j.job_id 
+	and e.salary between 9000 and 10000 
+	and j.job_title = 'Sales Representative';

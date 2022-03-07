@@ -153,6 +153,7 @@ private 안방화장실 -field,method
 protected		-field,method
 접근제어자가 protected로 설정되었다면 protected가 붙은 변수, 메소드는 동일 패키지의 클래스 또는 해당 클래스를 상속받은 다른 패키지의 클래스에서만 접근이 가능하다.
 
+
 private-> default-> protected -> public
 
 18. has a association
@@ -166,8 +167,9 @@ Association: 모든 오브젝트가 각자의 라이프사이클을 가지고 있고,
  각자가 생성/소멸을 독립적으로 합니다.
 
 20. static, final, abstract (특별한기능)
-	
-	
+static : Field와 Method에 사용하고 클래스로 생성된 인스턴스들이모두 공유하는 속성
+Final : Class,Field,Method 에 사용할 수있고, class에 쓰면 상속이불가,method에 쓰면 오버라이딩 불가, Field에 쓰면 수정이 불가능하다.
+abstract: Class,Method 에 쓸 수 있고 abstract method는 구체적일 필요가 없는 메서드, 하위클래스에는 오버라이딩이 강제된다.
 	
 	
 	

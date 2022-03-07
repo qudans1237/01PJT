@@ -1,0 +1,18 @@
+문제 1)
+select
+j.job_title, sum(e.salary)
+from jobs j, employees e
+where e.job_id = j.job_id
+group by j.job_title
+having sum(e.salary) > 30000
+order by sum(e.salary) desc;
+
+==========================================
+문제 2)
+select
+e.employee_id, e.first_name, j.job_title, d.department_name
+from employees e, departments d, locations l, jobs j
+where l.city = 'Seattle'
+	and j.job_id =e.job_id
+	and e.department_id = d.department_id
+	and d.location_id = l.location_id; 
