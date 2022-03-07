@@ -110,3 +110,39 @@ e1.empno 사번, e1.ename 이름, e2.empno 관리자사번, e2.ename 관리자이름
 from emp e1, emp e2
 where e1.mgr=e2.empno(+)
 order by e1.empno;
+
+=====sub qurery==========================
+=====sing row subquery==================
+select
+name 이름, id 사번
+from c_emp
+where dept_id=( select dept_id from c_emp where name = '이순신');
+
+
+select
+id 사번, name 이름, salary 급여
+from c_emp
+where salary<(select avg(salary) from c_emp );
+
+========multi row subquery ================
+
+select
+name 이름, dept_id 부서아이디
+from c_emp
+where dept_id in(select id from s_dept where dept_name in ('총무부','영업부'));
+
+=== multi column subquery=================
+select
+name, salary, dept_id
+from c_emp
+where salary in( select min(salary) from c_emp group by dept_id);
+
+select
+name, salary, dept_id
+from c_emp
+where(salary, dept_id) in(select min(salary),dept_id from c_emp group by dept_id); 
+=========inline view-===============================
+select
+name, salary, dept_id
+from c_emp c, (select dept_id,min(salary) min from c_emp group by dept_id) vt
+where c.dept_id=vt.dept_id and c.salary=vt.salary;

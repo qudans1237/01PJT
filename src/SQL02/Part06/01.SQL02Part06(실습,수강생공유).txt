@@ -88,9 +88,9 @@ where c.dept_id = s.id and s.dept_name in ('총무부');
      ==> 연봉:  \250,000 형식 , 연봉높은순
      
 select
-c.name,s.dept_name,to_char(c.salary,'L999,999')
+c.name 이름,s.dept_name 부서명,to_char(c.salary*12,'L999,999') 연봉
 from c_emp c, s_dept s
-where c.dept_id = s.id
+where c.dept_id = s.id and c.name like '김_%'
 order by c.salary desc;
 
 
@@ -100,7 +100,7 @@ order by c.salary desc;
       ==> 일    당 :: 30일기준, 소수점 0자리 버림, \250,000형식, 높은순 
 
 select
-c.name,s.dept_name,to_char(c.salary/30/8,'L999,999')
+c.name 이름,s.dept_name 부서명,to_char(c.salary/30/8,'L999,999') 일당
 from c_emp c, s_dept s
 where c.dept_id = s.id
 order by c.salary desc;
@@ -109,6 +109,36 @@ order by c.salary desc;
 
 3. 부서별 평균 월급  부서번호/부서명/평균월급 조회
      ==> 부서번호 :: 오름차순
+     
+select
+c.dept_id 부서번호,s.dept_name 부서명,to_char(avg(c.salary),'L999,999') 평균월급
+from c_emp c, s_dept s
+where c.dept_id = s.id
+group by c.dept_id, s.dept_name
+order by c.dept_id asc;
 
 
 4. 총무부 평균 월급  부서번호/부서명/평균월급 조회
+
+select
+c.dept_id 부서번호,s.dept_name 부서명,to_char(avg(c.salary),'L999,999') 평균월급
+from c_emp c, s_dept s
+where c.dept_id = s.id and s.dept_name like'총무부'
+group by c.dept_id, s.dept_name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
