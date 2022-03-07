@@ -66,6 +66,17 @@ INSERT INTO c_emp VALUES(117,'김정일',3000,'3429-0017',6);
 
 COMMIT;
  
+===================join ========================== 
+
+select
+c_emp.name, c_emp.dept_id,s_dept.id,s_dept.dept_name
+from c_emp , s_dept
+where c_emp.dept_id = s_dept.id and c_emp.dept_id = 1;
+
+select
+c.name, c.dept_id,s.id,s.dept_name
+from c_emp c, s_dept s
+where c.dept_id = s.id and s.dept_name in ('총무부');
 
 
 
@@ -74,13 +85,26 @@ COMMIT;
 //==============================================//
 
 1.  김씨성 직원의  이름 / 부서명 /연봉  조회
-     ==> 연봉:  \250,000 형식 , 연봉높은순 
+     ==> 연봉:  \250,000 형식 , 연봉높은순
+     
+select
+c.name,s.dept_name,to_char(c.salary,'L999,999')
+from c_emp c, s_dept s
+where c.dept_id = s.id
+order by c.salary desc;
 
 
 2.  월급이 2000이상 직원 부서명 / 이름 /일당 조회
       ==> 부서별 :: 오름차순
       ==> 이    름 :: 오름차순
       ==> 일    당 :: 30일기준, 소수점 0자리 버림, \250,000형식, 높은순 
+
+select
+c.name,s.dept_name,to_char(c.salary/30/8,'L999,999')
+from c_emp c, s_dept s
+where c.dept_id = s.id
+order by c.salary desc;
+
 
 
 3. 부서별 평균 월급  부서번호/부서명/평균월급 조회

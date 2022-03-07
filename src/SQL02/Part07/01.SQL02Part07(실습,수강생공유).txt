@@ -30,8 +30,13 @@ COMMIT;
 
 SELECT * FROM sal_grade;
 
+====join : non_equl join 이름,월급,월급등급 조회
+=====이름, 월급:c_emp/월급등급:sal_grade
 
-
+select
+c.name 이름, c.salary 월급, sg.grade 월급등급
+from c_emp c, sal_grade sg
+where c.salary between sg.losal and sg.hisal;
 
 
 
@@ -42,11 +47,26 @@ SELECT * FROM sal_grade;
 
 1. 개발부 직원과 영업부직원 이름 , 월급 , 월급등급 , 부서명 조회
     => 등급 높은순  ( NON-EQUI JOIN /  EQUI JOIN 같이 사용)
+    
+select
+c.name 이름, c.salary 월급, sg.grade 월급등급, s.dept_name 부서명
+from c_emp c, s_dept s, sal_grade sg
+where c.dept_id = s.id 
+	and c.salary between sg.losal and sg.hisal 
+		and s.dept_name in ('개발부,'영업부')
+group by c.name,c.salary,s.dept_name, sg.grade
+order by sg.grade;
+
 
 2. sal_grade가 A  인원이 2명이상인 부서명 , 인원수 , 등급 
      ( NON-EQUI JOIN /  EQUI JOIN 같이 사용)
 
-
+select
+s.dept_name 부서명,count(*) 인원수, sg.grade 등급
+from c_emp c, s_dept s, sal_grade sg
+where c.dept_id = s.id and c.salary between sg.losal and sg.hisal and sg.grade = 'A'
+group by s.dept_name,sg.grade
+having  count(*) >= 2;
 
 
 
@@ -66,3 +86,27 @@ INSERT INTO c_emp VALUES(202,'신입2',1500,'3429-0200',null);
 COMMIT;
 
 SELECT * FROM c_emp ; 
+
+select
+c.name 이름 , s.dept_name 부서명
+from c_emp c, s_dept s
+where c.dept_id = s.id;
+
+=========outer join=========================
+select
+c.name 이름 , s.dept_name 부서명
+from c_emp c, s_dept s
+where c.dept_id = s.id(+);
+
+
+=========self join===================
+select
+empno 사번, ename 이름, mgr 관리자사번
+from emp
+order by empno;
+
+select
+e1.empno 사번, e1.ename 이름, e2.empno 관리자사번, e2.ename 관리자이름
+from emp e1, emp e2
+where e1.mgr=e2.empno(+)
+order by e1.empno;
