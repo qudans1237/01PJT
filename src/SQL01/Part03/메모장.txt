@@ -201,4 +201,6 @@ EXISTS : SELECT 컬럼1 FROM 테이블  WHERE EXISTS ( SELECT * FROM 테이블 W
 
 @@FETCH_STATUS = 0 : 행을 에러없이 뽑았다면, @@FETCH_STATUS는 0을 반환
 
+=======================Join================================
+
 

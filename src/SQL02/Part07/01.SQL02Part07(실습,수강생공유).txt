@@ -124,6 +124,11 @@ id 사번, name 이름, salary 급여
 from c_emp
 where salary<(select avg(salary) from c_emp );
 
+select
+id 사번, name 이름,avg(salary),salary
+from c_emp
+group by id,name,salary
+having avg(salary)>= salary;
 ========multi row subquery ================
 
 select

@@ -1,0 +1,111 @@
+문제 1)
+select
+concat(to_char(hire_date,'MM'),'월') 월, count(*) 직원수
+from employees 
+group by to_char(hire_date,'MM')
+order by to_char(hire_date,'MM');
+
+==============================================================================
+문제 2)
+select
+d.department_name, e.first_name,e.salary
+from employees e, departments d
+where e.department_id=d.department_id
+and (department_name,e.salary)in(select d1.department_name,max(e1.salary)
+								from employees e1,departments d1
+								where e1.department_id = d1.department_id
+								group by department_name)
+
+=============================================================================
+문제 3)
+select
+d.department_name 부서명, max(e.salary) 최대급여, min(e.salary) 최소급여, avg(e.salary) 평균급여
+from employees e, departments d 
+where e.department_id = d.department_id
+group by d.department_name
+having avg(e.salary) > (select 
+							avg(salary)
+							from employees e1, departments d1
+							where e1.department_id = d1.department_id
+							and department_name='IT')
+and avg(e.salary) < (select avg(salary)
+						from employees e2, departments d2
+						where e2.department_id = d2.department_id
+						and department_name='Sales');
+						
+=============================================================================
+문제 4) *
+select
+NVL(d.department_name,'<신생부서>') 부서명,count(*) 직원수
+from employees e, departments d
+where e.department_id = d.department_id(+)
+group by department_name
+having count(*)=1
+order by department_name desc;
+
+=============================================================================
+문제 5) 
+select
+d.department_name 부서명,to_char(e.hire_date,'MM') 입사월, count(*) 직원수
+from employees e, departments d
+where e.department_id = d.department_id
+group by department_name,to_char(e.hire_date,'MM')
+having count(*) >=5
+order by department_name;
+
+=============================================================================
+문제 6)
+select
+NVL(c.country_name,'<부서없음>') 국가명,NVL(l.city,'<부서없음>') 도시명,count(*) 직원수
+from employees e,departments d, locations l, countries c
+where e.department_id = d.department_id(+)
+and d.location_id = l.location_id(+)
+and l.country_id = c.country_id(+)
+group by country_name,city
+order by country_name;
+
+========================================================================
+문제 7)
+select
+e.employee_id, e.first_name,a.salary,a.avg
+from employees e, (select e1.department_id,max(e1.salary) salary,trunc(avg(e1.salary),2) avg
+					from employees e1,departments d1
+					where e1.department_id = d1.department_id
+					group by e1.department_id) a
+where e.salary = a.salary
+and e.department_id= a.department_id
+order by e.employee_id;
+
+==============================================================================
+문제 8)
+CREATE TABLE SALGRADE (
+    grade NUMBER(2) NOT NULL,
+    losal NUMBER(5) NOT NULL,
+    hisal NUMBER(5) NOT NULL,
+    CONSTRAINT salgrade_grade_pk PRIMARY KEY(grade)
+);
+
+INSERT INTO salgrade values(1,1000,5000);
+INSERT INTO salgrade values(2,5001,10000);
+INSERT INTO salgrade values(3,10001,20000);
+INSERT INTO salgrade values(4,20001,30000);
+
+select
+concat(sg.grade,'등급') 급여등급, count(*) 직원수
+from salgrade sg,employees e
+where e.salary between sg.losal and sg.hisal
+group by concat(sg.grade,'등급')
+order by concat(sg.grade,'등급');
+
+
+
+
+
+
+
+
+
+
+
+
+

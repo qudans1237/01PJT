@@ -1,0 +1,20 @@
+巩力 01)
+select
+e.First_name,to_char(e.hire_date,'YY/MM/DD'),e.employee_id 包府磊锅龋,e1.first_name 包府磊己
+from employees e, departments d,employees e1
+where e.department_id = d.department_id
+and e.manager_id=e1.employee_id(+)
+and to_char(e.hire_date,'YY/MM/DD') between '80/01/01' and '89/12/31/'
+order by first_name asc;
+
+==========================================================================================
+巩力 02)
+select
+e.first_name, e.salary, d.department_name
+from employees e, departments d
+where e.department_id = d.department_id 
+and d.department_name = 'Sales'
+ and salary<(select
+		avg(salary) 
+		from employees 
+		where department_id ='100');
