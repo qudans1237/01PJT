@@ -97,6 +97,41 @@ where e.salary between sg.losal and sg.hisal
 group by concat(sg.grade,'등급')
 order by concat(sg.grade,'등급');
 
+===============================================================================
+문제 9)
+select
+NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>') 커미션,count(*) 직원수
+from employees
+group by NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>')
+order by NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>') desc;
+
+===============================================================================
+문제 10)
+SELECT 
+       * 
+FROM        (
+        SELECT 
+               D.DEPARTMENT_NAME, E.FIRST_NAME, E.SALARY, E.COMMISSION_PCT
+          FROM 
+               EMPLOYEES E, DEPARTMENTS D
+         WHERE E.DEPARTMENT_ID = D.DEPARTMENT_ID
+         ORDER BY E.COMMISSION_PCT DESC NULLS LAST, E.SALARY DESC
+       )
+ WHERE ROWNUM <= 4
+
+===============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
