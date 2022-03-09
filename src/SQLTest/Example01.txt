@@ -1,0 +1,52 @@
+import java.sql.*;
+
+public class example01{
+	public static void main(String[] args) {
+		Connection con = null;
+		Statement stmt = null;
+		String url ="jdbc:oracle:thin:@127.0.0.1:1521:xe";
+		
+		try{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}
+		
+		try{
+			con = DriverManager.getConnection(url,"scott","tiger");
+		}catch(SQLExcepion e){
+			e.printStackTrace();
+		}
+		
+		try{
+			stmt = con.createStatement();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		String createSql =
+			"CREATE TABLE member"+
+			"(no	NUMBER,"+
+			"id		VARCHAR2(10),"+
+			"pwd	VARCHAR2(10))";
+			
+		try{
+			System.out.println(stmt.executeUpdate(createSql));
+		}catch(SQLException e){
+			System.out.println(e.getErrorCode());
+			e.printStackTrace();
+		}
+		
+		try{
+			if(stmt != null){
+				stmt.close();
+			}
+			if(con != nill){
+				con.close()
+			}
+		}catch(SQLException e){
+			System.out.println(e.getErrorCode());
+			e.printStackTrace();
+		}
+	}
+}

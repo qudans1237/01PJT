@@ -1,0 +1,91 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class EmpStatistics {
+	
+	static {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) throws SQLException {
+		
+		int maxSalary = 10000;
+		new EmpStatistics().printStatistics(maxSalary);
+		
+		maxSalary= 15000;
+		new EmpStatistics().printStatistics(maxSalary);
+	}
+	
+	public void printStatistics(int maxSalary) throws SQLException {
+		
+		System.out.println("=====================================");
+		System.out.println("Max Salary : " + maxSalary);
+		System.out.println("=====================================");
+	}
+}
+
+/*
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+import kr.ac.jnu.util.ConnectionFactory;
+import kr.ac.jnu.util.JDBCClose;
+ 
+public class PrnEmpSalary {
+ 
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        Connection conn =null;
+        PreparedStatement pstmt =null;
+ 
+        try {
+             
+            conn =new ConnectionFactory().getConnection();
+ 
+            StringBuilder sql =new StringBuilder();
+            sql.append("select j.job_title, AVG(e.salary) from employees e, jobs j ");
+            sql.append(" where e.job_id = j.job_id ");
+            sql.append(" and e.salary >= ? ");
+            sql.append(" GROUP BY j.JOB_TITLE ");
+            sql.append(" ORDER BY AVG(e.salary) desc ");
+            pstmt = conn.prepareStatement(sql.toString());
+             
+            while (true) {
+                System.out.println("급여를 입력하세요");
+                int money = Integer.parseInt(sc.nextLine());
+                pstmt.setInt(1, money);
+ 
+                ResultSet rs = pstmt.executeQuery();
+                int cnt =0;
+                while (rs.next()) {
+                    System.out.printf("[%-32s]  : %d\n", rs.getString(1), rs.getInt(2));
+                    cnt++;
+                }
+                System.out.println("     총 [" + cnt +"] 명이 검색되었습니다.");
+                System.out.println("계속 하시겠습니까? 1. 계속   2. 종료 : ");
+                 
+                if(Integer.parseInt(sc.nextLine())==2) {
+                    System.out.println("종료하였습니다. ");
+                    System.exit(0);
+                }
+                 
+            }
+ 
+        }catch (Exception e) {
+            // TODO: handle exception
+        }finally {
+            JDBCClose.close(conn, pstmt);
+        }
+ 
+    }
+ 
+}
+*/
