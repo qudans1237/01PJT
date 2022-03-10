@@ -1,34 +1,47 @@
 package test;
 
+
+
 public class Prob22 {
 
-	public Prob22() {
-	}
-	private static String getParameter(String url,String paramName) {
+	public String toEncoding(String str) {
 		
-		int index = url.indexOf("?");
-		String tmp1 = url.substring(index + 1, url.length());
+		String hexStr = "";
+		byte[] value = str.getBytes();
 		
-		String[] tmp2 = tmp1.split("&");
-		String result = null;
+		for(Byte arrayByte : value) {
+			if(!(arrayByte >= 'A' && arrayByte <= 'z')) {
+				if(arrayByte == ' ') {
+					hexStr += ' ';
+				}else if(arrayByte >= '0' && arrayByte <= '9'){
+					hexStr += (char)arrayByte.intValue();
+				}else {
+					hexStr += "%"+Integer.toHexString(arrayByte).substring(6).toUpperCase();
+				}
+				
+			}else 
+				hexStr += (char)arrayByte.intValue();
+			}
+			
 		
-		for(int i = 0; i< tmp2.length; i++) {
-			String[] tmp3 = tmp2[i].split("=");
-			result = tmp3[1];
-			break;
-		}
-	return result;
+		return hexStr;
 	}
 	
+	
 	public static void main(String[] args) {
-		String url1 = "http://localhost/order?prodId=PROD-001&prodName=갤럭시3&price=980000";
-		
-		String prodName = getParameter(url1,"prodName");
-		System.out.println("제품이름: "+ prodName);
-		
-		String url2 ="http://localhost/registUser?userId=USER-001&userName=홍길동&address=서울시강남구&userAge=26";
-		
-		String userAddress = getParameter(url2,"address");
-		System.out.println("회원 주소: "+ userAddress);
+		Prob22 p1 = new Prob22();
+		System.out.println("입력: "+"Korea");
+		System.out.println("출력: "+p1.toEncoding("Korea"));
+		System.out.println("입력: "+"홍길동");
+		System.out.println("출력: "+p1.toEncoding("홍길동"));
+		System.out.println("입력: "+"홍 길 동");
+		System.out.println("출력: "+p1.toEncoding("홍 길 동"));
+		System.out.println("입력: "+"Hong 길 동");
+		System.out.println("출력: "+p1.toEncoding("Hong 길 동"));
+		System.out.println("입력: "+"0319");
+		System.out.println("출력: "+p1.toEncoding("0319"));
+
+
 	}
+
 }
