@@ -6,7 +6,18 @@ and salary >= 4000;
 
 
 select 
-employee_id, first_name, salary
+e.employee_id,e.first_name, e.salary
+from employees e,(select employee_id from employees where salary > 4000) e1
+where e.employee_id = e1.employee_id
+and first_name like 'Al%' or first_name like '%al%'
+and e.employee_id = e1.employee_id;
+
+
+select
+NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>') 커미션,count(*) 직원수
 from employees
-where first_name like 'Al%' or first_name like '%al%'
-and salary >= 4000;
+group by NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>')
+order by NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>') desc;
+
+
+select NVL(to_char(manager_id),'<킹>') from employees;
