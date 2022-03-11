@@ -172,8 +172,45 @@ Final : Class,Field,Method 에 사용할 수있고, class에 쓰면 상속이불가,method에 쓰
 abstract: Class,Method 에 쓸 수 있고 abstract method는 구체적일 필요가 없는 메서드, 하위클래스에는 오버라이딩이 강제된다.
 	
 	
-	
-	
+21. browser : http protocal request client&app
+              html parsing -> display
+              
+    web server : html 관리 -> request 읽고-> response 보내주는 server 용 app
+    
+22. servlet container :
+23. JSP container :    
+24. tomcat WAS
+
+25 URL / URI
+26 .war
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	
 	
 	
