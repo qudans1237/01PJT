@@ -1,23 +1,11 @@
-select 
-employee_id, first_name, salary
-from employees
-where first_name like '%_al_%'  
-and salary >= 4000;
 
-
-select 
-e.employee_id,e.first_name, e.salary
-from employees e,(select employee_id from employees where salary > 4000) e1
-where e.employee_id = e1.employee_id
-and first_name like 'Al%' or first_name like '%al%'
-and e.employee_id = e1.employee_id;
 
 
 select
-NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>') 커미션,count(*) 직원수
-from employees
-group by NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>')
-order by NVL(to_char(trunc(commission_pct,1)),'<커미션 없음>') desc;
+l.city, d.department_name, e.first_name, e.salary
+from employees e,departments d, locations l
+where e.department_id = d.department_id
+and d.location_id = l.location_id
+and lower(l.city) like '%lon%'
+and lower(d.department_name) like '%human%';
 
-
-select NVL(to_char(manager_id),'<킹>') from employees;
