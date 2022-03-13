@@ -1,0 +1,21 @@
+<!-- <a> Anchor Tag : 서로 다른 웹 페이지 이동, 웹 페이지 내부 특정 부위 이동할 때 사-->
+
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<title>04a.html</title>
+</head>
+<body>
+
+	<a href="http://daum.net">다음</a><br />
+	<a href="http://naver.com">네이버</a><br />
+	
+	<hr/>
+	
+	<a href="#">이동예정 Page</a><br/>
+	<a href="#">구현될 Page</a><br/>
+	
+	<hr/>
+</body>
+
+</html>
