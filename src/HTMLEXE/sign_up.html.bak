@@ -5,19 +5,21 @@
 </head>
 <body>  
 	<table border="1" summary="">
-     개인 정보
+	<tr>
+		<td colspan="4">*개인정보</td> <input type="button" value="?"/ style="float: right;"></td>
+	</tr>
       <tr>
 		<th scope="row">* 이름(한글실명)</th>
-		<td><input type='text'></td>
+		<td>&nbsp;&nbsp;<input type='text' style="width:100px" ></td>
       </tr>
       <tr>
         <th scope="row">*성별</th>
-        <td><input type='radio'> 남 <input type='radio'> 여</td>
+        <td>&nbsp;&nbsp;<input type='radio'> 남 <input type='radio'> 여</td>
       </tr>
       <tr>
-         <th scope="row">생년월일</th>
+         <th scope="row">*생년월일</th>
           <td>
-          <input type ='text'>년 <select name = 'month' size='1'>
+          &nbsp;&nbsp;<input type ='text' style="width:30px">년 <select name = 'month' size='1'>
 										<option value =''>선택</option>
 										<option value ='01'>01</option>
 										<option value ='02'>02</option>
@@ -70,7 +72,7 @@
             </tr>
             <tr>
                 <th scope="row">*최종학력</th>
-                <td>
+                <td>&nbsp;
                    <select name = 'Education' size='1'>
 				<option value =''>선택</option>
 				<option value ='51'>중학교졸업</option>
@@ -82,20 +84,21 @@
             </tr>
 			<tr>
                 <th scope="row">*직업</th>
-                <td>
+                <td>&nbsp;
                    <select name = 'job' size='1'>
 			<option value =''>선택</option>
-			<option value ='61'>개발자</option>
-			<option value ='62'>강사</option>
-			<option value ='63'>학생</option>
-			<option value ='64'>무직</option>
-			</select>  소속<input type='text'>
+			<option value ='61'> 프론트엔드</option>
+			<option value ='62'>백엔드</option>
+			<option value ='63'>비트캠프강사</option>
+			<option value ='64'>학생/option>
+			<option value ='65'> 무직</option>
+			</select>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp소속 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type='text' style ="width:100px">
                 </td>
             </tr>
 			<tr>
                 <th scope="row">*결혼여부</th>
                 <td>
-                   <input type='radio'> 미혼 <input type='radio'> 기혼 자녀수<select name = 'baby' size='1'>
+                   &nbsp;&nbsp;<input type='radio'> 미혼 <input type='radio'> 기혼 자녀수<select name = 'baby' size='1'>
 																			<option value =''>선택</option>
 																			<option value ='71'>0</option>
 																			<option value ='72'>1</option>
@@ -108,18 +111,19 @@
             </tr>
 			</tr>
             <tr>
-                <th scope="row">*연락처</th>
-                <td> *전화번호<input type='text'>-<input type='text'>-<input type='text'> <input type='radio'> 집 <input type='radio'> 직장</td>
+                <th scope="row" rowspan="3">*연락처</th>
+                <td>&nbsp; *전화번호&nbsp;&nbsp;<input type='text' style="width:30px">-<input type='text' style="width:30px">-<input type='text' style="width:30px"> <input type='radio'> 집 <input type='radio'> 직장</td>
             </tr>
 			<tr>
-                <th scope="row">*연락처</th>
-                <td> *휴대폰  <input type='text'>-<input type='text'>-<input type='text'> 이동통신사 <input type='radio'> SKT <input type='radio'> KTF<input type='radio'> LGT
-				<p>전화번호나 휴대폰번호 2가지 중 하나는 반드시 입력하셔야 합니다.
+                <td>&nbsp;&nbsp; *휴대폰&nbsp;&nbsp;&nbsp;&nbsp;<input type='text' style="width:30px">-<input type='text'style="width:30px">-<input type='text' style="width:30px"> 이동통신사 <input type='radio'> SKT <input type='radio'> KTF<input type='radio'> LGT
 				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;&nbsp;전화번호나 휴대폰번호 2가지 중 하나는 반드시 입력하셔야 합니다.</td>
             </tr>
 			<tr>
 				<th scope="row">*거주지 주소 </th>
-				<td><input type="button" value="국내"/><input type="button" value="국외"/><input type='text'></td>
+				<td>&nbsp;&nbsp;<input type="button" value="국내"/>&nbsp;<input type="button" value="국외"/>&nbsp;<input type='text' style="width:350px"></td>
 			</tr>
         </table>
     
