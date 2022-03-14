@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang = "ko">
+<head>
+	<title>sign_up.html</title>
+</head>
+<body>
+	<tablee border="1">
+	<tr>
+	<td colspan="4"><h4>개인 정보</h4></td>
+	<td>* 이름(한글실명):</td>
+	<td><input type='text'></td>
+	</tr>
+	<tr>
+	<td>* 성별 :</td>
+	<td colspan="3"><input type='radio'> 남 <input type='radio'> 여</td>
+	</tr>
+	<tr>
+	<td>* 생년월일 :</td>
+	<td colspan="3"> <input type ='text'>년 <select name = 'month' size='1'>
+										<option value =''>선택</option>
+										<option value ='01'>01</option>
+										<option value ='02'>02</option>
+										<option value ='03'>03</option>
+										<option value ='04'>04</option>
+										<option value ='05'>05</option>
+										<option value ='06'>06</option>
+										<option value ='07'>08</option>
+										<option value ='09'>09</option>
+										<option value ='10'>10</option>
+										<option value ='11'>11</option>
+										<option value ='12'>12</option>
+										</select>월
+										<select name = 'day' size='1'>
+										<option value =''>선택</option>
+										<option value ='01'>01</option>
+										<option value ='02'>02</option>
+										<option value ='03'>03</option>
+										<option value ='04'>04</option>
+										<option value ='05'>05</option>
+										<option value ='06'>06</option>
+										<option value ='07'>08</option>
+										<option value ='09'>09</option>
+										<option value ='10'>10</option>
+										<option value ='11'>11</option>
+										<option value ='12'>12</option>
+										<option value ='13'>13</option>
+										<option value ='14'>14</option>
+										<option value ='15'>15</option>
+										<option value ='16'>16</option>
+										<option value ='17'>17</option>
+										<option value ='18'>18</option>
+										<option value ='19'>19</option>
+										<option value ='20'>20</option>
+										<option value ='21'>21</option>
+										<option value ='22'>22</option>
+										<option value ='23'>23</option>
+										<option value ='24'>24</option>
+										<option value ='25'>25</option>
+										<option value ='26'>26</option>
+										<option value ='27'>27</option>
+										<option value ='28'>28</option>
+										<option value ='29'>29</option>
+										<option value ='30'>30</option>
+										<option value ='31'>31</option>
+										</select>일
+										<input type='radio'> 양력 <input type='radio'> 음력 (<input type='radio'> 윤달) </td>
+	</tr>
+	<tr>
+	<td>*최종학력 :</td>
+	<td colspan="3"> <select name = 'Education' size='1'>
+				<option value =''>선택</option>
+				<option value ='51'>중학교졸업</option>
+				<option value ='52'>고등학교졸업</option>
+				<option value ='53'>대학교졸업</option>
+				<option value ='54'>석사/박사</option>
+				</select></td>
+	</tr>
+	<tr>
+	<td>*직업 : </td>
+	<td colspan="3"><select name = 'job' size='1'>
+			<option value =''>선택</option>
+			<option value ='61'>개발자</option>
+			<option value ='62'>강사</option>
+			<option value ='63'>학생</option>
+			<option value ='64'>무직</option>
+			</select>  소속<input type='text'></td>
+	</tr>
+	<tr>
+	<td>*결혼여부 :</td>
+	<td colspan="3"><input type='radio'> 미혼 <input type='radio'> 기혼 자녀수<select name = 'baby' size='1'>
+																			<option value =''>선택</option>
+																			<option value ='71'>0</option>
+																			<option value ='72'>1</option>
+																			<option value ='73'>2</option>
+																			<option value ='74'>3</option>
+																			<option value ='74'>4</option>
+																			<option value ='74'>5</option>
+																			</select>  명</td>
+	</tr>
+	<tr>
+	<td rowspan="3"> *연락처 :</td>
+	<td> -전화번호<input type='text'>-<input type='text'>-<input type='text'> <input type='radio'> 집 <input type='radio'> 직장</td>
+	</tr>
+	<tr>
+	<td> -휴대폰<input type='text'>-<input type='text'>-<input type='text'> 이동통신사 <input type='radio'> SKT <input type='radio'> KTF<input type='radio'> LGT</td>
+	</tr>
+	<tr>
+	<td>전화번호나 휴대폰번호 2가지 중 하나는 반드시 입력하셔야 합니다.</td>
+	</tr>
+	<tr>
+	<td>*거주지 주소 : <input type="button" value="국내"/><input type="button" value="국외"/><input type='text'></td>
+	</tr>
+</table>
+
+
+</body>
+</html>
+
+<div module="Estimate_Userform">
+    <!--@css(/css/module/estimate/userform.css)-->
+    <!--
+        $action_url = /estimate/print.html
+    -->
+    <div class="header">
+        <h1>견적서 신청자 정보 입력</h1>
+    </div>
+    <div class="content">
+        <h2>신청자 정보</h2>
+        {$form.begin}
+        <table border="1" summary="">
+            <caption>신청자 정보</caption>
+            <tr>
+                <th scope="row">신청자명</th>
+                <td>{$form.user_name}</td>
+            </tr>
+            <tr>
+                <th scope="row">휴대전화</th>
+                <td>{$form.mobile}</td>
+            </tr>
+            <tr>
+                <th scope="row">이메일</th>
+                <td>
+                    {$form.email}
+                    <p class="grid">- 견적서를 전송받을 이메일 주소를 입력합니다.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">개인정보 취급방침</th>
+                <td>
+                    <div class="agree">{$privacy_agreement}</div>
+                    <p class="grid">
+                        <span class="question">개인정보취급방침에 동의하십니까?</span>
+                        {$form.agree_T}<label for="agreement_check_T">동의함</label> {$form.agree_F}<label for="agreement_check_F">동의안함</label>
+                    </p>
+                </td>
+            </tr>
+        </table>
+        {$form.end}
+    </div>
+    <div class="btnArea">
+        <a href="#none" onclick="{$action_confirm}"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/order/btn_estimate_submit.gif" alt="확인하기" /></a>
+    </div>
+</div>
