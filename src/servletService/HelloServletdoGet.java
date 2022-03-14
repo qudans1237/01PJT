@@ -1,7 +1,4 @@
-package servletService;
-
 import java.io.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -12,7 +9,7 @@ public class HelloServletdoGet extends HttpServlet{
 	///service() method Overriding æ 
 	//doGet() method Overriding
 	
-	public void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException{
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException,IOException{
 		
 		System.out.println(":: servlet doGet()Ω√¿€");
 		System.out.println("Request Client IP : "+ req.getRemoteAddr());

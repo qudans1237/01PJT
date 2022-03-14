@@ -1,13 +1,10 @@
-package servletService;
-
 import java.io.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class PostData extends HttpServlet {
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException,IOException{
 
 		// res.setCharacterEncoding("~~")(API확인)
 		// 16진수 인코딩된 client form data 한글 디코딩

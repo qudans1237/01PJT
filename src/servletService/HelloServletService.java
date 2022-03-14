@@ -1,7 +1,4 @@
-package servletService;
-
 import java.io.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -16,15 +13,15 @@ public class HelloServletService extends HttpServlet {
 		System.out.println("Request Client IP : "+req.getRemoteAddr());
 		
 		//한글 처리
-		res.setContentType("text/html");
-		//res.setContentType("text/html;charset=EUC_KR");
+		//res.setContentType("text/html");
+		res.setContentType("text/html;charset=EUC_KR");
 		
 		//1. client Html Text 전송위한 Stream을 생성
 		//OutputStream ouputStream = res.getOutPutStream();
 		//PrintWriter out = new PrintWriter(writer);
 		
 		//2.PrintWriter 인스턴스 생성을 Encapsulation 한 API사용 Stream 생성
-		PrintWrite out = res.getWriter();
+		PrintWriter out = res.getWriter();
 		
 		out.println("<html>");
 		out.println("<head><title>hello Servlet</title></head>");

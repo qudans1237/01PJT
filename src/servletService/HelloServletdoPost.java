@@ -1,7 +1,4 @@
-package servletService;
-
 import java.io.*;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -10,7 +7,7 @@ public class HelloServletdoPost extends HttpServlet {
 
 	/// service() method Overriding æ 
 	// doPost() method Overriding
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletExceotion, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException,IOException{
 
 		System.out.println(":: servlet doPost() Ω√¿€");
 		System.out.println("Request Client IP : " + req.getRemoteAddr());
